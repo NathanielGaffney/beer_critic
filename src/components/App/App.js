@@ -7,6 +7,7 @@ import ItemListPage from '../../routes/ItemListPage/ItemListPage'
 import ItemPage from '../../routes/ItemPage/ItemPage'
 import LoginPage from '../../routes/LoginPage/LoginPage'
 import RegistrationPage from '../../routes/RegistrationPage/RegistrationPage'
+import NewItemPage from '../../routes/NewItemPage/NewItemPage'
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
 import './App.css'
 
@@ -45,10 +46,18 @@ class App extends Component {
               path={'/register'}
               component={RegistrationPage}
             />
+            <Route
+              path={'/new-item'}
+              component={NewItemPage}
+            />
             {/* <PrivateRoute
               path={'/item/:itemId'}
               component={ItemPage}
             /> */}
+            <Route
+              path={'/item/:itemId'}
+              component={ItemPage}
+            />
             <Route
               component={NotFoundPage}
             />

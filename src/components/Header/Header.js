@@ -3,11 +3,20 @@ import { Link } from 'react-router-dom'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Hyph } from '../Utils/Utils'
 import TokenService from '../../services/token-service'
+import Filter from '../Filter/Filter'
 // import './Header.css'
 
 export default class Header extends Component {
   handleLogoutClick = () => {
     TokenService.clearAuthToken()
+  }
+
+  handleFilterClick = () => {
+    this.setState({ filter: !this.state.filter})
+  }
+
+  state ={
+    filter: false,
   }
 
   renderLogoutLink() {
@@ -34,6 +43,45 @@ export default class Header extends Component {
           to='/login'>
           Log in
         </Link>
+        <Hyph />
+        <Link
+          onClick={this.handleFilterClick}
+          to='/'>
+            Sort
+        </Link>
+        <Hyph />
+        <Link 
+          to='/new-item'>
+          Add New Item
+        </Link>
+      </div>
+    )
+  }
+
+  renderFilterLink() {
+    return (
+      <div className='Header__not-logged-in'>
+        <Link
+          to='/register'>
+          Register
+        </Link>
+        <Hyph />
+        <Link
+          to='/login'>
+          Log in
+        </Link>
+        <Hyph />
+        <Link
+          onClick={this.handleFilterClick}
+          to='/'>
+            Sort
+        </Link>
+        <Filter></Filter>
+        <Hyph />
+        <Link 
+          to='/new-item'>
+          Add New Item
+        </Link>
       </div>
     )
   }
@@ -50,7 +98,10 @@ export default class Header extends Component {
         </h1>
         {TokenService.hasAuthToken()
           ? this.renderLogoutLink()
-          : this.renderLoginLink()}
+          : (this.state.filter)
+              ? this.renderFilterLink()
+              : this.renderLoginLink()
+        }
       </nav>
     )
   }

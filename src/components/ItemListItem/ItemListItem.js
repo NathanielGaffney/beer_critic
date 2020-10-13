@@ -17,16 +17,29 @@ export default class ItemListItem extends Component {
           {/* <ItemDate item={item} /> */}
         </header>
         <footer className='ItemListItem__footer'>
-          {/* <ItemStyle item={item} />
-          {item.author.id && <>
-            <Hyph />
-            <ItemAuthor item={item} />
-          </>} */}
-          {/* <ItemCommentCount item={item} /> */}
+          <h3>{item.medium}</h3>
+          <h3>{item.type}</h3>
+          <h3>Rating: {item.rating}</h3>
+          <h3>Favorite: {ItemFavorite(item)}</h3>
         </footer>
       </Link>
     )
   }
+}
+
+function ItemFavorite(item) {
+  let bool;
+  if (!item.favorite) {
+    bool = 'false'
+  } else {
+    bool = 'true'
+  }
+  return (
+    <span>
+      {bool}
+    </span>
+  )
+
 }
 
 function ItemStyle({ item }) {

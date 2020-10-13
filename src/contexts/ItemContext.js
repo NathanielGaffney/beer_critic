@@ -6,24 +6,36 @@ export const nullItem = {
 }
 
 const ItemContext = React.createContext({
+  itemList: [],
   item: nullItem,
   comments: [],
   error: null,
   setError: () => {},
   clearError: () => { },
+  setItemList: () => {},
   setItem: () => {},
   clearItem: () => {},
   setComments: () => {},
   addComment: () => {},
+  addToList: () => {},
 })
 
 export default ItemContext
 
 export class ItemProvider extends Component {
   state = {
+    itemList: [],
     item: nullItem,
     error: null,
   };
+
+  setItemList = itemList => {
+    this.setState({ itemList })
+  }
+
+  addToList = newItem => {
+    this.setState([ ...this.state.itemList, newItem])
+  }
 
   setError = error => {
     console.error(error)
@@ -56,6 +68,7 @@ export class ItemProvider extends Component {
 
   render() {
     const value = {
+      itemList: this.state.itemList,
       item: this.state.item,
       comments: this.state.comments,
       error: this.state.error,
@@ -65,6 +78,8 @@ export class ItemProvider extends Component {
       setComments: this.setComments,
       clearItem: this.clearItem,
       addComment: this.addComment,
+      setItemList: this.setItemList,
+      addToList: this.addToList,
     }
     return (
       <ItemContext.Provider value={value}>
