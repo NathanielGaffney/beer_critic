@@ -5,7 +5,7 @@ import ItemApiService from '../../services/item-api-service'
 import { NiceDate, Hyph, Section } from '../../components/Utils/Utils'
 // import StyleIcon from '../../components/StyleIcon/StyleIcon'
 // import CommentForm from '../../components/CommentForm/CommentForm'
-// import './ItemPage.css'
+import './ItemPage.css'
 
 export default class ItemPage extends Component {
   static defaultProps = {
@@ -35,7 +35,6 @@ export default class ItemPage extends Component {
     this.context.clearError()
     ItemApiService.getItem(itemId)
       .then(item => { this.context.setItem(item) })
-      .then(console.log(this.context.item))
       .then()
       .catch(this.context.setError)
     // ItemApiService.getItemComments(itemId)
@@ -96,7 +95,7 @@ export default class ItemPage extends Component {
 
   renderItem() {
     const { item } = this.context
-    return <>
+    return <div className='ItemPage'>
       <h2>{item.name}</h2>
       <h3>Rating: {item.rating}</h3>
       <h3>Price: {item.price}</h3>
@@ -106,14 +105,14 @@ export default class ItemPage extends Component {
       <p>{item.description}</p>
       <button onClick={this.handleEditPage}>Edit</button>
       <button onClick={this.handleDelete}>Delete</button>
-    </>
+    </div>
   }
 
   renderEditItem() {
 
     console.log(this.state)
-    return <>
-      <form onSubmit={this.handleSubmit}>
+    return <div className='ItemPage'>
+      <form onSubmit={this.handleSubmit} >
         <input type='text' name='name' placeholder='Beer Name' value={this.state.name} onChange={this.handleInputChange}></input>
         <input type='text' name='type' placeholder='Beer Type' value={this.state.type} onChange={this.handleInputChange}></input>
         <input type='text' name='price' placeholder='Beer Price' value={this.state.price} onChange={this.handleInputChange}></input>
@@ -138,7 +137,7 @@ export default class ItemPage extends Component {
         <button type='submit'>Submit</button>
         <button onClick={this.handleDelete}>Delete</button>
       </form>
-    </>
+    </div>
   }
 
   render() {
@@ -177,51 +176,3 @@ function ItemFavorite(item) {
   )
 
 }
-
-function ItemStyle({ item }) {
-  return (
-    <span className='ItemPage__style'>
-      {/* <StyleIcon style={item.style} />
-      {' '}
-      {item.style} */}
-    </span>
-  )
-}
-
-function ItemAuthor({ item = nullItem }) {
-  return (
-    <span className='ItemPage__author'>
-      {item.author.full_name}
-    </span>
-  )
-}
-
-function ItemContent({ item }) {
-  return (
-    <p className='ItemPage__content'>
-      {item.content}
-    </p>
-  )
-}
-
-// function ItemComments({ comments = [] }) {
-//   return (
-//     <ul className='ItemPage__comment-list'>
-//       {comments.map(comment =>
-//         <li key={comment.id} className='ItemPage__comment'>
-//           <p className='ItemPage__comment-text'>
-//             <FontAwesomeIcon
-//               size='lg'
-//               icon='quote-left'
-//               className='ItemPage__comment-icon blue'
-//             />
-//             {comment.text}
-//           </p>
-//           <p className='ItemPage__comment-user'>
-//             {comment.user.full_name}
-//           </p>
-//         </li>
-//       )}
-//     </ul>
-//   )
-// }

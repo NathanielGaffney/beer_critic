@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ItemApiService from '../../services/item-api-service'
 import ItemContext from '../../contexts/ItemContext'
 import { Section } from '../../components/Utils/Utils'
+import './NewItemPage.css'
 
 export default class ItemListPage extends Component {
     static contextType = ItemContext
@@ -42,10 +43,16 @@ export default class ItemListPage extends Component {
         
       }
 
+    handleCancel = ev => {
+        ev.preventDefault(
+            this.props.history.push('/')
+        )
+    }
+
     render() {
         
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} className='NewItemPage'>
                 <input type='text' name='name' placeholder='Beer Name' value={this.state.name} onChange={this.handleInputChange}></input>
                 <input type='text' name='type' placeholder='Beer Type' value={this.state.type} onChange={this.handleInputChange}></input>
                 <input type='text' name='price' placeholder='Beer Price' value={this.state.price} onChange={this.handleInputChange}></input>
@@ -68,7 +75,7 @@ export default class ItemListPage extends Component {
                 <input type='checkbox' id='favorite' name='favorite' checked={this.state.favorite} onChange={this.handleInputChange}/>
                 <textarea name='description' value={this.state.description} onChange={this.handleInputChange} placeholder='Description'></textarea>
                 <button type='submit'>Submit</button>
-                <button>Cancel</button>
+                <button onClick={this.handleCancel}>Cancel</button>
             </form>
         )
     }

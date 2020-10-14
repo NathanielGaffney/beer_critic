@@ -5,7 +5,7 @@ const ItemApiService = {
   getItems() {
     return fetch(`${config.API_ENDPOINT}/items`, {
       headers: {
-        // 'authorization': `bearer ${TokenService.getAuthToken()}`
+        'authorization': `bearer ${TokenService.getAuthToken()}`
       },
     })
       .then(res =>{
@@ -30,7 +30,8 @@ const ItemApiService = {
     return fetch(`${config.API_ENDPOINT}/items`,{
       method: 'POST',
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify({
         name: newItem.name,
@@ -87,7 +88,7 @@ const ItemApiService = {
         : res.json()
     })
 
-  }
+  },
   // getItemComments(articleId) {
   //   return fetch(`${config.API_ENDPOINT}/articles/${articleId}/comments`, {
   //     headers: {

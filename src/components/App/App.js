@@ -28,12 +28,12 @@ class App extends Component {
         <main className='App__main'>
           {this.state.hasError && <p className='red'>There was an error! Oh no!</p>}
           <Switch>
-            {/* <Route
+            <PublicOnlyRoute
               exact
-              path={'/'}
+              path={'/login'}
               component={LoginPage}
-            /> */}
-            <Route
+            />
+            <PrivateRoute
               exact
               path={'/'}
               component={ItemListPage}
@@ -46,18 +46,18 @@ class App extends Component {
               path={'/register'}
               component={RegistrationPage}
             />
-            <Route
+            <PrivateRoute
               path={'/new-item'}
               component={NewItemPage}
             />
-            {/* <PrivateRoute
-              path={'/item/:itemId'}
-              component={ItemPage}
-            /> */}
-            <Route
+            <PrivateRoute
               path={'/item/:itemId'}
               component={ItemPage}
             />
+            {/* <Route
+              path={'/item/:itemId'}
+              component={ItemPage}
+            /> */}
             <Route
               component={NotFoundPage}
             />

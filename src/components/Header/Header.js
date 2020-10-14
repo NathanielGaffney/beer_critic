@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
+import { Route } from 'react-router'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Hyph } from '../Utils/Utils'
 import TokenService from '../../services/token-service'
 import Filter from '../Filter/Filter'
-// import './Header.css'
+import './Header.css'
 
-export default class Header extends Component {
+class Header extends Component {
   handleLogoutClick = () => {
     TokenService.clearAuthToken()
+    this.props.history.push('/login')
   }
 
   handleFilterClick = () => {
@@ -27,6 +29,17 @@ export default class Header extends Component {
           to='/'>
           Logout
         </Link>
+        <Hyph />
+        <Link
+          onClick={this.handleFilterClick}
+          to='/'>
+            Sort
+        </Link>
+        <Hyph />
+        <Link 
+          to='/new-item'>
+          Add New Item
+        </Link>
       </div>
     )
   }
@@ -43,17 +56,6 @@ export default class Header extends Component {
           to='/login'>
           Log in
         </Link>
-        <Hyph />
-        <Link
-          onClick={this.handleFilterClick}
-          to='/'>
-            Sort
-        </Link>
-        <Hyph />
-        <Link 
-          to='/new-item'>
-          Add New Item
-        </Link>
       </div>
     )
   }
@@ -62,13 +64,9 @@ export default class Header extends Component {
     return (
       <div className='Header__not-logged-in'>
         <Link
-          to='/register'>
-          Register
-        </Link>
-        <Hyph />
-        <Link
-          to='/login'>
-          Log in
+          onClick={this.handleLogoutClick}
+          to='/'>
+          Logout
         </Link>
         <Hyph />
         <Link
@@ -96,13 +94,15 @@ export default class Header extends Component {
             Beer Critic
           </Link>
         </h1>
-        {TokenService.hasAuthToken()
-          ? this.renderLogoutLink()
+        {(!TokenService.hasAuthToken())
+          ? this.renderLoginLink()
           : (this.state.filter)
               ? this.renderFilterLink()
-              : this.renderLoginLink()
+              : this.renderLogoutLink()
         }
       </nav>
     )
   }
 }
+
+export default withRouter(Header)

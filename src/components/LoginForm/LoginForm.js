@@ -29,10 +29,11 @@ export default class LoginForm extends Component {
     const { user_name, password } = ev.target
 
     AuthApiService.postLogin({
-      user_name: user_name.value,
+      username: user_name.value,
       password: password.value,
     })
       .then(res => {
+        console.log(res)
         user_name.value = ''
         password.value = ''
         TokenService.saveAuthToken(res.authToken)
