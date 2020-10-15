@@ -95,7 +95,7 @@ export default class ItemPage extends Component {
 
   renderItem() {
     const { item } = this.context
-    return <div className='ItemPage'>
+    return <div>
       <h2>{item.name}</h2>
       <h3>Rating: {item.rating}</h3>
       <h3>Price: {item.price}</h3>
@@ -111,7 +111,7 @@ export default class ItemPage extends Component {
   renderEditItem() {
 
     console.log(this.state)
-    return <div className='ItemPage'>
+    return <div>
       <form onSubmit={this.handleSubmit} >
         <input type='text' name='name' placeholder='Beer Name' value={this.state.name} onChange={this.handleInputChange}></input>
         <input type='text' name='type' placeholder='Beer Type' value={this.state.type} onChange={this.handleInputChange}></input>
