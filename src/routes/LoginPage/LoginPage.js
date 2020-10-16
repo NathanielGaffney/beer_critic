@@ -24,6 +24,8 @@ export default class LoginPage extends Component {
         <LoginForm
           onLoginSuccess={this.handleLoginSuccess}
         />
+        <h3>Welcome to Beer Critic!</h3>
+        <p className='intro'>This app is a way to keep track of all of the craft beers you've had, so you can find it at the store again, or make better conversation about beers with your friends.  Login above, or sign up using the "Register" link in the top right corner.</p>
       </Section>
     )
   }
