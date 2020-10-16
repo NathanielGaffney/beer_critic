@@ -6,6 +6,10 @@ This app is the perfect way to keep track of your favorite beers, so that you ca
 Deployed Version
 ----------------
 
+Dummy User Account
+username: testUser
+password: password
+
 The Client can be reached at https://beer-critic-client.vercel.app/login
 
 The api can be reached at https://limitless-coast-38251.herokuapp.com/api
