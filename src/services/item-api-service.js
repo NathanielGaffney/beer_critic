@@ -80,7 +80,8 @@ const ItemApiService = {
     return fetch(`${config.API_ENDPOINT}/items/${id}`,{
       method: 'DELETE',
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
       },
     })
     .then(res =>{
