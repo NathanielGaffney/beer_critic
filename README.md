@@ -25,8 +25,13 @@ Legend
 ------
 
 > Header =  /src/components/Header
+>
 > Login Page = /src/routes/LoginPage
+>
 > Registration Page = /src/routes/RegistrationPage
+>
 > Main Page = /src/routes/ItemListPage
+>
 > Item Page = /src/routes/ItemPage
+>
 > New Item Page = /src/routes/NewItemPage
