@@ -6,15 +6,24 @@ This app is the perfect way to keep track of your favorite beers, so that you ca
 Deployed Version
 ----------------
 
-[Deployed Version Link](https://beer-critic-client.vercel.app/login)
+The Client can be reached at https://beer-critic-client.vercel.app/login
+
+The api can be reached at https://limitless-coast-38251.herokuapp.com/api
 
 ![alt text](/public/beer_critic_screenshot.png "Beer Critic Screenshot")
 
 Tech Stack
 ----------
 
-This app uses React and react-router for the front end, and is deployed on vercel.
-For the back end, it uses Express, knex, postgresql, and is deployed on heroku.
+Front end
+* React
+* Vercel
+
+Back end
+* Express
+* knex
+* postgresql
+* heroku
 
 Component description
 ---------------------
