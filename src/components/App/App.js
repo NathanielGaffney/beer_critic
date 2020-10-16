@@ -54,10 +54,6 @@ class App extends Component {
               path={'/item/:itemId'}
               component={ItemPage}
             />
-            {/* <Route
-              path={'/item/:itemId'}
-              component={ItemPage}
-            /> */}
             <Route
               component={NotFoundPage}
             />

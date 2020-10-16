@@ -4,6 +4,7 @@
     align-items: normal;
     justify-content: space-between;
     background-color: #33261D;
+    margin-bottom: 10%;
   }
   
   .Header h1 {
@@ -16,6 +17,11 @@
   
   .Header a {
     color: #F7C548;
+  }
+
+  .Header__logged-in {
+    display: flex;
+    flex-direction: row;
   }
   
   .Header__not-logged-in {
@@ -36,10 +42,16 @@
     }
   
     .Header__not-logged-in {
+      display:flex;
       flex-direction: row;
     }
   
     .Header__not-logged-in .Hyph {
       display: initial;
+    }
+
+    .filter {
+      display: flex;
+      flex-direction: column;
     }
   }

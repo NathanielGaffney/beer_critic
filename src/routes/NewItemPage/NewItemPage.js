@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import ItemApiService from '../../services/item-api-service'
 import ItemContext from '../../contexts/ItemContext'
-import { Section } from '../../components/Utils/Utils'
 import './NewItemPage.css'
 
 export default class ItemListPage extends Component {

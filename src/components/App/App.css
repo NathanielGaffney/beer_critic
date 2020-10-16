@@ -10,6 +10,7 @@
 .App__header {
   padding-left: 20px;
   padding-right: 20px;
+  margin: 10%, 10%, 0, 0;
 }
 
 .App__main {

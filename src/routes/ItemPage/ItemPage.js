@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import ItemContext, { nullItem } from '../../contexts/ItemContext'
+import ItemContext from '../../contexts/ItemContext'
 import ItemApiService from '../../services/item-api-service'
-import { NiceDate, Hyph, Section } from '../../components/Utils/Utils'
-// import StyleIcon from '../../components/StyleIcon/StyleIcon'
-// import CommentForm from '../../components/CommentForm/CommentForm'
+import { Section } from '../../components/Utils/Utils'
 import './ItemPage.css'
 
 export default class ItemPage extends Component {
@@ -37,9 +34,6 @@ export default class ItemPage extends Component {
       .then(item => { this.context.setItem(item) })
       .then()
       .catch(this.context.setError)
-    // ItemApiService.getItemComments(itemId)
-    //   .then(this.context.setComments)
-    //   .catch(this.context.setError)
   }
 
   componentWillUnmount() {
@@ -96,12 +90,11 @@ export default class ItemPage extends Component {
   renderItem() {
     const { item } = this.context
     return <div>
-      <h2>{item.name}</h2>
+      <h2>{item.name} {ItemFavorite(item)}</h2>
       <h3>Rating: {item.rating}</h3>
       <h3>Price: {item.price}</h3>
       <h3>{item.medium}</h3>
       <h3>{item.type}</h3>
-      <h3>Favorite: {ItemFavorite(item)}</h3>
       <p>{item.description}</p>
       <button onClick={this.handleEditPage}>Edit</button>
       <button onClick={this.handleDelete}>Delete</button>
@@ -165,9 +158,9 @@ export default class ItemPage extends Component {
 function ItemFavorite(item) {
   let bool;
   if (!item.favorite) {
-    bool = 'false'
+    bool = ''
   } else {
-    bool = 'true'
+    bool = <i className="fas fa-heart"></i>
   }
   return (
     <span>

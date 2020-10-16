@@ -3,7 +3,6 @@ import ItemContext from '../../contexts/ItemContext'
 import ItemApiService from '../../services/item-api-service'
 import { Section } from '../../components/Utils/Utils'
 import ItemListItem from '../../components/ItemListItem/ItemListItem'
-// import Filter from '../../components/Filter/Filter'
 
 export default class ItemListPage extends Component {
   static contextType = ItemContext
@@ -24,23 +23,6 @@ export default class ItemListPage extends Component {
       />
     )
   }
-
-  // renderFilter(){
-  //   if(filter){
-  //     return(
-  //       <>
-  //       <Filter/>
-  //       {this.renderItems}
-  //       </>
-  //     )
-  //   } else {
-  //     return (
-  //     <> 
-  //     {this.renderItems()}
-  //     </>
-  //     )
-  //   }
-  // }
 
   render() {
     const { error } = this.context
