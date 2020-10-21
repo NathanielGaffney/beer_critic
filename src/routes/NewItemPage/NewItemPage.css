@@ -1,9 +1,21 @@
 .NewItemPage {
     background: #A98743;
     font-size: smaller;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     padding: 40px 10px;
     text-align: left;
     width: auto;
     text-decoration: none;
+  }
+
+  .formitem {
+    margin-bottom: 10px ;
+  }
+
+  .add-error{
+    margin-left: 10px;
+    color: #A98743;
   }

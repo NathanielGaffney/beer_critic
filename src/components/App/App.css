@@ -1,20 +1,31 @@
 .App {
   height: 100vh;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  max-width: 500px;
+  max-width: 1000px;
   margin: 0 auto;
   background-color: #33261D;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .App__header {
-  padding-left: 20px;
-  padding-right: 20px;
+  width: 100%;
+  max-width: 1000px;
   margin: 10%, 10%, 0, 0;
+  position: fixed;
+  top:0;
 }
 
 .App__main {
   height: calc(100vh - 70px);
   overflow: auto;
-  margin-top: 10px;
+  margin-top: 28%;
+}
+
+@media screen and (min-width: 600px){
+  .App__main {
+    height: calc(100vh - 70px);
+    overflow: auto;
+    margin-top: 18%;
+  }
 }

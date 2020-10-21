@@ -12,22 +12,26 @@ import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
 import './App.css'
 
 class App extends Component {
-  state = { hasError: false }
+  state = { 
+    hasError: false,
+  }
 
   static getDerivedStateFromError(error) {
     console.error(error)
     return { hasError: true }
   }
 
+
+
   render() {
     return (
-      <div className='App'>
+      <div className='App' >
         <header className='App__header'>
           <Header />
         </header>
         <main className='App__main'>
           {this.state.hasError && <p className='red'>There was an error! Oh no!</p>}
-          <Switch>
+          <Switch >
             <PublicOnlyRoute
               exact
               path={'/login'}

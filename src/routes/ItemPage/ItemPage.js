@@ -105,11 +105,11 @@ export default class ItemPage extends Component {
 
     console.log(this.state)
     return <div>
-      <form onSubmit={this.handleSubmit} >
-        <input type='text' name='name' placeholder='Beer Name' value={this.state.name} onChange={this.handleInputChange}></input>
-        <input type='text' name='type' placeholder='Beer Type' value={this.state.type} onChange={this.handleInputChange}></input>
-        <input type='text' name='price' placeholder='Beer Price' value={this.state.price} onChange={this.handleInputChange}></input>
-        <select name='rating' value={this.state.rating} onChange={this.handleInputChange}>
+      <form onSubmit={this.handleSubmit} className='editItem'>
+        <input className='formitem' type='text' name='name' placeholder='Beer Name' value={this.state.name} onChange={this.handleInputChange}></input>
+        <input className='formitem' type='text' name='type' placeholder='Beer Type' value={this.state.type} onChange={this.handleInputChange}></input>
+        <input className='formitem' type='text' name='price' placeholder='Beer Price' value={this.state.price} onChange={this.handleInputChange}></input>
+        <select className='formitem' name='rating' value={this.state.rating} onChange={this.handleInputChange}>
           <option>Select Rating</option>
           <option>1</option>
           <option>2</option>
@@ -117,7 +117,7 @@ export default class ItemPage extends Component {
           <option>4</option>
           <option>5</option>
         </select>
-        <select name='medium' value={this.state.medium} onChange={this.handleInputChange}>
+        <select className='formitem' name='medium' value={this.state.medium} onChange={this.handleInputChange}>
           <option>Select Medium</option>
           <option>Draft</option>
           <option>Bottle</option>
@@ -125,10 +125,10 @@ export default class ItemPage extends Component {
           <option>Other</option>
         </select>
         <label htmlFor='#favorite'>Favorite</label>
-        <input type='checkbox' id='favorite' name='favorite' checked={this.state.favorite} onChange={this.handleInputChange} />
-        <textarea name='description' value={this.state.description} onChange={this.handleInputChange} placeholder='Description'></textarea>
-        <button type='submit'>Submit</button>
-        <button onClick={this.handleDelete}>Delete</button>
+        <input className='formitem' type='checkbox' id='favorite' name='favorite' checked={this.state.favorite} onChange={this.handleInputChange} />
+        <textarea className='formitem' name='description' value={this.state.description} onChange={this.handleInputChange} placeholder='Description'></textarea>
+        <button className='formitem' type='submit'>Submit</button>
+        <button className='formitem' onClick={this.handleDelete}>Delete</button>
       </form>
     </div>
   }
