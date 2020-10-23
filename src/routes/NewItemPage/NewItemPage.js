@@ -16,7 +16,6 @@ export default class ItemListPage extends Component {
                 medium: '',
                 description: '',
                 favorite: false,
-                user_id: 1,
             },
             error: null,
 

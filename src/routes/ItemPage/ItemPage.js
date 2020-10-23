@@ -21,7 +21,6 @@ export default class ItemPage extends Component {
       medium: '',
       description: '',
       favorite: false,
-      user_id: 1,
       edit: false,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -51,7 +50,6 @@ export default class ItemPage extends Component {
       medium: this.context.item.medium,
       description: this.context.item.description,
       favorite: this.context.item.favorite,
-      user_id: 1,
       edit: !this.state.edit
     })
   }
@@ -64,7 +62,6 @@ export default class ItemPage extends Component {
     this.setState({
       [name]: value
     });
-    console.log(this.state.name)
   }
 
   handleSubmit = ev => {
@@ -102,8 +99,6 @@ export default class ItemPage extends Component {
   }
 
   renderEditItem() {
-
-    console.log(this.state)
     return <div>
       <form onSubmit={this.handleSubmit} className='editItem'>
         <input className='formitem' type='text' name='name' placeholder='Beer Name' value={this.state.name} onChange={this.handleInputChange}></input>
