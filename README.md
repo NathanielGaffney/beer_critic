@@ -1,6 +1,8 @@
 Beer Critic
 ===========
 
+Due to changes in pricing and requirements, the server side hosting from Heroku is currently unavailable. Feel free to browse the back-end code in the Github Repo while the necessary changes are being made to bring the public version back online.
+
 This app is the perfect way to keep track of your favorite beers, so that you can always remember if you've tried one when talking to your friends.
 
 Deployed Version
